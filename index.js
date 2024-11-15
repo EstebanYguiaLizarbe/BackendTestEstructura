@@ -14,6 +14,7 @@ app.listen(4000, () => {
 // conexionDb();
 
 app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/login', require('./routes/auth'));
 
 // app.get('/', (req, res) => {
 //     res.json({message: "prueba rutas backend"});
