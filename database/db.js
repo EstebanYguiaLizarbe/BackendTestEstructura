@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 
 const conexionDb = async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/test', {
-            socketTimeoutMS: 1000
-          });
+        await mongoose.connect( process.env.DB_CNN , {
+            useNewUrlParser: true, 
+            useUnifiedTopology: true,
+        });
+
+        console.log('DB Online');
         
     } catch (error) {
-        throw new Error(error);
+        console.log(error);
+        throw new Error('Error a la hora de iniciar la BD ver logs');
     }
 
 }

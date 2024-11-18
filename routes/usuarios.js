@@ -2,15 +2,12 @@ const { Router } = require('express');
 const { getUsuarios, crearUsuario, actualizarUsuario, borrarUsuario  } = require('../controllers/usuarios')
 const { validarJWT } = require('../middlewares/validar-jwt');
 const { check } = require('express-validator');
-const { validarCampos } = require('../middlewares/validar-campo');
+const { validarCampos } = require('../middlewares/validar-campos');
 
 const router = Router();
 
 // router.get('/', getUsuarios);
 // router.post('/', crearUsuario);
-
-module.exports = router;
-
 
 // ---------------------------------------------
 

@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
-    name: {
+const UsuarioSchema = Schema({
+
+    nombre: {
         type: String,
         required: true
     },
@@ -13,10 +13,10 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     img: {
-        type: String
+        type: String,
     },
     role: {
         type: String,
@@ -26,16 +26,16 @@ const userSchema = new Schema({
     google: {
         type: Boolean,
         default: false
-    }
-
+    },
 });
 
-userSchema.method('toJSON', function() {
+
+UsuarioSchema.method('toJSON', function() {
     const { __v, _id, password, ...object } = this.toObject();
     object.uid = _id;
     return object;
 })
 
-module.exports = model('Usuario', userSchema);
 
 
+module.exports = model( 'Usuario', UsuarioSchema );
